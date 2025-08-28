@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/YourGitHubUsername/YourRepo.git'
+                git branch: 'main', url: 'https://github.com/sainathislavath/Orchestration-and-Scaling.git'
             }
         }
 
