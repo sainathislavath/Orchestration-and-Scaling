@@ -70,7 +70,7 @@ Instead of AWS CodeCommit, we use **GitHub** for version control because CodeCom
 ## Continuous Integration with Jenkins
 
 1. Install Jenkins on EC2
-    -Install necessary plugins: Git, Docker, Pipeline.
+    - Install necessary plugins: Git, Docker, Pipeline.
 
 2. Create Jenkins Jobs
     - Build Docker images and push to ECR.
@@ -90,7 +90,9 @@ Instead of AWS CodeCommit, we use **GitHub** for version control because CodeCom
         - Auto Scaling Groups for backend
         - Elastic Load Balancers (ALB/ELB)
         - EC2 launch templates
+
     ![VPC](/images/18.png)
+
     ![VPC](/images/19.png)
 
 ## Deploying Backend Services
@@ -126,7 +128,8 @@ Instead of AWS CodeCommit, we use **GitHub** for version control because CodeCom
 
 1. Create EKS Cluster
     - Install `eksctl` if it is not present in the device.
-    ![eksctl](/images/22.png)
+
+        ![eksctl](/images/22.png)
 
     - Run the below command to create the cluster
         ```bash
@@ -141,34 +144,41 @@ Instead of AWS CodeCommit, we use **GitHub** for version control because CodeCom
         --nodes-max 4 \
         --managed
         ```
-    ![cluster](/images/23.png)
-    ![cluster](/images/24.png)
+        ![cluster](/images/23.png)
+        
+        ![cluster](/images/24.png)
 
 2. Deploy Application with Helm
     - Package MERN app using Helm charts.
     - Deploy frontend and backend services on the EKS cluster.
-    ![helm](/images/32.png)
+    
+        ![helm](/images/32.png)
 
 ## Monitoring and Logging
 
 1. Set Up Monitoring with CloudWatch
     - Create alarms for CPU/Memory usage on nodes.
     - Monitor EKS container insights.
-    ![cloudwatch](/images/25.png)
-    ![cloudwatch](/images/26.png)
+        ![cloudwatch](/images/25.png)
+    
+        ![cloudwatch](/images/26.png)
 
 2. Configure Logging
     - Collect logs from applications and Lambda functions.
     - Use CloudWatch Logs or any centralized logging solution.
-    ![logs](/images/27.png)
-    ![logs](/images/28.png)
-    ![logs subscribed](/images/29.png)
+        
+        ![logs](/images/27.png)
+    
+        ![logs](/images/28.png)
+        
+        ![logs subscribed](/images/29.png)
 
 ## Bonus: ChatOps Integration
 
 1. Create SNS Topics
     - Example: `DeploymentSuccess`, `DeploymentFailure`
-    ![SNS](/images/30.png)
+    
+        ![SNS](/images/30.png)
 
 2. Lambda for ChatOps
     - Lambda receives deployment events and sends notifications to SNS.
@@ -176,7 +186,8 @@ Instead of AWS CodeCommit, we use **GitHub** for version control because CodeCom
 3. Integrate Messaging Platform
     - Connect SNS to Slack, MS Teams, or Telegram.
     - Slack example uses Incoming Webhooks to post notifications.
-    ![Slack](/images/31.png)
+        
+        ![Slack](/images/31.png)
 
 ## References
 - [AWS EKS Documentation](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html)
