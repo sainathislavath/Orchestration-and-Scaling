@@ -188,7 +188,7 @@ Instead of AWS CodeCommit, we use **GitHub** for version control because CodeCom
 # Author
 <p align="center">
   <a href="https://github.com/sainathislavath">
-    <img src="https://avatars.githubusercontent.com/u/71361447?v=4&s=40" width="40" style="border-radius:50%;">
+    <img src="https://avatars.githubusercontent.com/u/71361447?v=4&s=40" width="50" style="border-radius:50%;">
     <br>
     <b>Sainath Islavath</b>
   </a>
