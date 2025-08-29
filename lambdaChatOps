@@ -1,0 +1,27 @@
+import boto3
+import json
+
+SNS_TOPIC_SUCCESS = 'arn:aws:sns:us-west-2:975050024946:DeploymentSuccess'
+SNS_TOPIC_FAILURE = 'arn:aws:sns:us-west-2:975050024946:DeploymentFailure'
+
+sns = boto3.client('sns')
+
+
+def lambda_handler(event, context):
+    status = event.get('status', 'failure')
+    deployment_name = event.get('deployment_name', 'unknown')
+    
+    message = {
+        'deployment': deployment_name,
+        'status': status
+    }
+
+    topic_arn = SNS_TOPIC_SUCCESS if status == 'success' else SNS_TOPIC_FAILURE
+
+    sns.publish(
+        TopicArn=topic_arn,
+        Message=json.dumps(message),
+        Subject=f"Deployment {status.upper()}"
+    )
+
+    return {'statusCode': 200, 'body': 'Notification sent'}
