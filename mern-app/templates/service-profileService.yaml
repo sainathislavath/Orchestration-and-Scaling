@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: profile-service
+spec:
+  type: ClusterIP
+  selector:
+    app: profile-service
+  ports:
+    - port: {{ .Values.backend.profile.port }}
+      targetPort: {{ .Values.backend.profile.port }}

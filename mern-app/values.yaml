@@ -1,0 +1,17 @@
+frontend:
+  image: "975050024946.dkr.ecr.us-west-2.amazonaws.com/sample-frontend:latest"
+  port: 3000
+  replicas: 1
+
+backend:
+  hello:
+    name: hello-service
+    port: 3001
+    image: "975050024946.dkr.ecr.us-west-2.amazonaws.com/hello-service:latest"
+    replicas: 1
+
+  profile:
+    name: profile-service
+    port: 3002
+    image: "975050024946.dkr.ecr.us-west-2.amazonaws.com/profile-service:latest"
+    replicas: 1
